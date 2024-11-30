@@ -24,14 +24,12 @@ struct Data {
 
 int main()
 {
-	using namespace std;
+	std::cout << "sizeof(any)        = " << sizeof(std::any) << '\n';
+	std::cout << "sizeof (type_info) = " << sizeof(std::type_info) << '\n';
 
-	cout << "sizeof(any)        = " << sizeof(any) << '\n';
-	cout << "sizeof (type_info) = " << sizeof(type_info) << '\n';
-
-	any ax = 10;
+	std::any ax = 10;
 	ax = 1.0;
-	ax = "alican"s;
+	ax = std::string{ "alican" };
 	Data data;
 	ax = data;
 }
