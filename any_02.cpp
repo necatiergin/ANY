@@ -4,9 +4,9 @@
 
 int main()
 {
-	using namespace std;
+	using std::cout, std::any, std::any_cast;
 
-	cout << boolalpha;
+	boolalpha(cout);
 
 	any ax = 10;
 	cout << ax.type().name() << ": " << any_cast<int>(ax) << '\n';
@@ -15,8 +15,8 @@ int main()
 	ax = true;
 	cout << ax.type().name() << ": " << any_cast<bool>(ax) << '\n';
 
-	ax = "alican"s;
-	cout << ax.type().name() << ": " << any_cast<string>(ax) << '\n';
+	ax = std::string{ "alican" };
+	cout << ax.type().name() << ": " << any_cast<std::string>(ax) << '\n';
 
 
 	try
@@ -24,7 +24,7 @@ int main()
 		ax = 21;
 		cout << any_cast<float>(ax) << '\n';
 	}
-	catch (const bad_any_cast& e)
+	catch (const std::bad_any_cast& e)
 	{
 		std::cout << "exception caught: " << e.what() << '\n';
 	}
