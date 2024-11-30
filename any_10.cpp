@@ -1,19 +1,18 @@
 #include <any>
 #include <iostream>
- 
+
 int main()
 {
-	using namespace std;
-	cout.setf(ios::boolalpha);
- 
-	any a;
-	cout << a.has_value() << '\n'; //false
+	boolalpha(std::cout);
+
+	std::any a;
+	std::cout << a.has_value() << '\n'; //false
 	a = 45;
-	cout << a.has_value() << '\n'; //true
+	std::cout << a.has_value() << '\n'; //true
 	a.reset();
-	cout << a.has_value() << '\n'; //false
+	std::cout << a.has_value() << '\n'; //false
 	a = false;
-	cout << a.has_value() << '\n'; //true
+	std::cout << a.has_value() << '\n'; //true
 	a = {};
-	cout << a.has_value() << '\n'; //false
+	std::cout << a.has_value() << '\n'; //false
 }
