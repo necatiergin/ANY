@@ -1,6 +1,6 @@
 /*
-	sınıfın reset üye fonksiyonu tutulan nesnenin ömrünü sonlandırıyor.
-	sınıfın has_value fonksiyonu any nesnesinin bir değer tutup tutmadığını sorguluyor.
+	member function reset destroys the object tha any holds.
+	member function has_value tests if any object holds a value.
 */
 
 #include <any>
@@ -8,19 +8,17 @@
 
 int main()
 {
-	using namespace std;
-
 	try {
-		any any_val = 876;
-		cout << "Deger:  " << any_cast<int>(any_val) << '\n';
+		std::any any_val = 876;
+		std::cout << "value is:  " << any_cast<int>(any_val) << '\n';
 
 		any_val.reset();
 		if (!any_val.has_value())
-			cout << "degisken bir degere sahip degil\n";
+			std::cout << "has no value\n";
 
-		auto ival = std::any_cast<int>(any_val); //hata gonderecek
+		auto ival = std::any_cast<int>(any_val); // throws exception
 	}
-	catch (const bad_any_cast& e) {
-		cout << "hata yakalandi: " << e.what() << '\n';
+	catch (const std::bad_any_cast& e) {
+		std::cout << "exception caught: " << e.what() << '\n';
 	}
 }
