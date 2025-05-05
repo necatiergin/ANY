@@ -8,9 +8,9 @@ using tv_pair = std::pair<std::string, std::any>;
 
 int main()
 {
-    using namespace std;
+    using namespace std::literals;
 
-    vector<tv_pair> vec;
+    std::vector<tv_pair> vec;
 
     vec.emplace_back("name", "ahmet aksoy"s);
     vec.emplace_back("year", 1998);
@@ -22,14 +22,13 @@ int main()
     vec.emplace_back("country", "Turkey"s);
     //
 
-    cout << left;
+    std::cout << std::left;
     for (const auto& [property, value] : vec) {
         if (value.type() == typeid(int))
-            cout << setw(16) << property << any_cast<int>(value) << '\n';
+            std::cout << std::setw(16) << property << any_cast<int>(value) << '\n';
         else if (value.type() == typeid(double))
-            cout << setw(16) << property << any_cast<double>(value) << '\n';
-        else if (value.type() == typeid(string))
-            cout << setw(16) << property << any_cast<string>(value) << '\n';
+            std::cout << std::setw(16) << property << any_cast<double>(value) << '\n';
+        else if (value.type() == typeid(std::string))
+            std::cout << std::setw(16) << property << any_cast<std::string>(value) << '\n';
     }
 }
-
