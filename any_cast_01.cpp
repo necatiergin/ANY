@@ -4,22 +4,20 @@
 
 int main()
 {
-    using namespace std;
+    boolalpha(std::cout);
 
-    boolalpha(cout);
+    std::any a1;
+    std::cout << "a1.has_value(): " << a1.has_value() << '\n';
 
-    any a1;
-    cout << "a1.has_value(): " << a1.has_value() << '\n';
-
-    any a2 = 99;
+    std::any a2 = 99;
     std::cout << "a2.has_value(): " << a2.has_value() << '\n';
     std::cout << "a2 = " << std::any_cast<int>(a2) << '\n';
     a2.reset();
     std::cout << "a2.has_value(): " << a2.has_value() << '\n';
-    
-    auto a3 = make_any<string>("Necati Ergin");
-    cout << "a3.has_value(): " << a3.has_value() << '\n';
-    cout << "a3 = " << any_cast<string&>(a3) << '\n';
+
+    auto a3 = std::make_any<std::string>("Necati Ergin");
+    std::cout << "a3.has_value(): " << a3.has_value() << '\n';
+    std::cout << "a3 = " << any_cast<std::string&>(a3) << '\n';
     a3.reset();
-    cout << "a3.has_value(): " << a3.has_value() << '\n';
+    std::cout << "a3.has_value(): " << a3.has_value() << '\n';
 }
